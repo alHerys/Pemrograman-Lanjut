@@ -12,9 +12,9 @@ public class GudangMain {
             // Mengambil 5 barang dari gudang. Attribut tidak akan berubah karena barang yang diambil < jumlah barang yang ada di gudang
             Perpustakaan.ambilBarang(5);
 
-            Perpustakaan.tambahBarang(10); // Menambahkan 10 barang ke gudang. Attribut jumlahBarang dan jumlahBarangMasuk bertambah.
-            Perpustakaan.ambilBarang(5); // Mengambil 5 barang dari gudang. Attribut jumlahBarang berkurant, sedangkan attribut jumlahBarangKeluar bertambah.
-            Perpustakaan.tambahBarang(7);
+            Perpustakaan.tambahBarang(10); // Menambahkan 10 barang ke gudang. 
+            Perpustakaan.ambilBarang(5); // Mengambil 5 barang dari gudang. 
+            Perpustakaan.tambahBarang(7); // Menambahkan 7 barang ke gudang.
 
             Perpustakaan.catatanGudang(); // Menampilkan seluruh attribut gudang.
 

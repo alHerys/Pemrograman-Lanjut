@@ -1,40 +1,55 @@
 package praktic.geometry.shapes;
 
-import praktic.geometry.mains.Main;
+import praktic.geometry.bases.CircularShape;
+import praktic.geometry.interfaces.TwoDimensional;
 
-public class Circle {
+import java.util.Scanner;
 
-//    Field
-    private int id;
-    private double radius;
-    private final int pembilang = 22;
-    private final int penyebut = 7;
+/**
+ * Representasi lingkaran 2D. Mengimplementasikan interface TwoDimensional.
+ */
+public class Circle extends CircularShape implements TwoDimensional {
 
-//  Constructor
-    public Circle() {}
+    /** Konstruktor dengan input radius melalui scanner */
+    public Circle() {
+        System.out.print("Enter radius    : ");
+        this(new Scanner(System.in).nextDouble());
+    }
 
-//    Method
-    public void setId(int id) {
-        this.id = id;
+    /**
+     * Konstruktor dengan parameter radius.
+     * @param radius Nilai radius lingkaran.
+     */
+    public Circle(double radius) {
+        setName("Circle");
+        setRadius(radius);
     }
-    public void setRadius(double radius) {
-        this.radius = radius;
+
+    /**
+     * Menghitung luas lingkaran menggunakan rumus πr².
+     * @return Luas lingkaran.
+     */
+    @Override
+    public double getArea() {
+        return ((double) PI_NUMERATOR / PI_DENOMINATOR) * Math.pow(getRadius(), 2);
     }
-    public double getKeliling() {
-        return 2 * radius * ((double) pembilang /penyebut);
+
+    /**
+     * Menghitung keliling lingkaran menggunakan rumus 2πr.
+     * @return Keliling lingkaran.
+     */
+    @Override
+    public double getPerimeter() {
+        return 2 * ((double) PI_NUMERATOR / PI_DENOMINATOR) * getRadius();
     }
-    public double getLuas() {
-        return ((double) pembilang /penyebut) * Math.pow(radius,2);
-    }
-    public void printDeskripsi() {
-        System.out.println(Main.YELLOW + "Deskripsi Lingkaran:");
+
+    /** Mencetak informasi lingkaran. */
+    @Override
+    public void printInfo() {
         System.out.printf("""
-                ID       = %d
-                Radius   = %.0f
-                Keliling = %f
-                Luas     = %f
-                """, id, radius, getKeliling(), getLuas());
-
-
+                Name            : %s
+                Area            : %.1f
+                Perimeter       : %.1f
+                """, getName(), getArea(), getPerimeter());
     }
 }
